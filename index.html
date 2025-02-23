@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to MicrobeMetrics: Microbial Diversity Analyzer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- PapaParse -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
+  <!-- jsPDF -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <!-- D3.js -->
+  <script src="https://d3js.org/d3.v7.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>🦠MicrobeMetrics: A Microbial Diversity Analyzer</h1>
+    <p>Analyze your microbiome data and visualize diversity indices</p>
+  </header>
+  
+  <main>
+    <section class="card">
+      <h2>Data Input</h2>
+      <div class="input-group">
+        <label for="csvInput">Upload CSV File:</label>
+        <input type="file" id="csvInput" accept=".csv" />
+      </div>
+      <div class="input-group">
+        <label for="speciesData">Enter species data (Name: Count):</label>
+        <textarea id="speciesData" rows="6" placeholder="Bacteria1: 50&#10;Bacteria2: 30&#10;Bacteria3: 20"></textarea>
+      </div>
+      <div class="btn-group">
+        <button class="btn primary" onclick="analyzeDiversity()">Analyze</button>
+        <button class="btn secondary" onclick="exportPDF()">Export as PDF</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Results</h2>
+      <div class="results-grid">
+        <div class="result">
+          <h3>Shannon Index</h3>
+          <p id="shannonIndex">-</p>
+        </div>
+        <div class="result">
+          <h3>Simpson Index</h3>
+          <p id="simpsonIndex">-</p>
+        </div>
+        <div class="result">
+          <h3>Species Richness</h3>
+          <p id="speciesRichness">-</p>
+        </div>
+      </div>
+      <div class="chart-container">
+        <canvas id="diversityChart"></canvas>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Phylogenetic Tree Visualization</h2>
+      <div id="phyloTree"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Microbial Diversity Analyzer. Designed & Developed with Precision and Passion by Anshuman Sahoo.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
